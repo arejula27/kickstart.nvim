@@ -190,9 +190,9 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Keybinds exit
-vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
-vim.keymap.set('n', '<C-q>', '<cmd>q!<CR>', { desc = 'Force [Q]uit' })
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Inspect folder' })
+--vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
+--vim.keymap.set('n', '<C-q>', '<cmd>q!<CR>', { desc = 'Force [Q]uit' })
+vim.keymap.set('n', '<leader>if', vim.cmd.Ex, { desc = '[I]nspect [F]older' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -821,7 +821,7 @@ require('lazy').setup({
       --  - va)  - [V]isually select [A]round [)]paren
       --  - yinq - [Y]ank [I]nside [N]ext [']quote
       --  - ci'  - [C]hange [I]nside [']quote
-      require('mini.ai').setup { n_lines = 500 }
+      -- require('mini.ai').setup { n_lines = 500 }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
       --
