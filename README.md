@@ -224,7 +224,9 @@ sudo dnf install -y gcc make git ripgrep fd-find unzip neovim
 sudo pacman -S --noconfirm --needed gcc make git ripgrep fd unzip neovim
 ```
 </details>
+
 ## Devcontainer
+
 It is possible to use a `devcontainer` with neovim already configured. It can be used executing [devpod](https://devpod.sh/) in the project folder:
 ```bash
 devpod up . --devcontainer-image arejula27/devcontainer:main --ide none
