@@ -14,7 +14,7 @@ RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >>/etc/sudoers
 RUN echo "arejula27-dev:dev" | chpasswd
 
 
-COPY ./zshrc /home/arejula27-dev/.zshrc
+COPY docker/zshrc /home/arejula27-dev/.zshrc
 
 USER arejula27-dev 
 
