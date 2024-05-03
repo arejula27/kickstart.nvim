@@ -189,6 +189,10 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Keybinds exit
+vim.keymap.set('n', '<leader>q', '<cmd>q<CR>', { desc = 'Quit' })
+vim.keymap.set('n', '<C-q>', '<cmd>q!<CR>', { desc = 'Force [Q]uit' })
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Inspect folder' })
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
