@@ -207,6 +207,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+vim.keymap.set('i', 'jj', '<Esc>l', { noremap = true })
+
 require 'arejula27.bootstrap'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
