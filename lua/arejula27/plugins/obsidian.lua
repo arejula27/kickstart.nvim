@@ -18,6 +18,24 @@ return {
   },
   opts = {
     disable_frontmatter = true,
+    -- Optional, alternatively you can customize the frontmatter data.
+    ---@return table
+    note_frontmatter_func = function(note)
+      -- Add the title of the note as an alias.
+      note:add_alias(note.id)
+
+      local out = { aliases = note.aliases, tags = note.tags }
+
+      -- `note.metadata` contains any manually added fields in the frontmatter.
+      -- So here we just make sure those fields are kept in the frontmatter.
+      if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
+        for k, v in pairs(note.metadata) do
+          out[k] = v
+        end
+      end
+
+      return out
+    end,
     ui = {
       enable = true,
     },
@@ -49,6 +67,25 @@ return {
       alias_format = '%Y-%m-%d',
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
       template = 'Daily-nvim.md',
+    },
+    -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
+    -- way then set 'mappings = {}'.
+    mappings = {
+      -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
+      ['gf'] = {
+        action = function()
+          return require('obsidian').util.gf_passthrough()
+        end,
+        opts = { noremap = false, expr = true, buffer = true },
+      },
+      -- Toggle check-boxes.
+      ['<leader>ch'] = {
+        action = function()
+          return require('obsidian').util.toggle_checkbox()
+        end,
+        opts = { buffer = true },
+      },
+      ['<leader>os'] = { action = '<cmd>ObsidianQuickSwitch<cr>', opts = { buffer = true, desc = '[O]bsidian quick [S]witch' } },
     },
 
     -- see below for full list of options 👇
