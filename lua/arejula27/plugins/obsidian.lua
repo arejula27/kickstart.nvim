@@ -68,6 +68,25 @@ return {
       -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
       template = 'Daily-nvim.md',
     },
+    -- Optional, customize how note IDs are generated given an optional title.
+    ---@param title string|?
+    ---@return string
+    note_id_func = function(title)
+      -- Create note IDs in a Zettelkasten format with a timestamp and a suffix.
+      -- In this case a note with the title 'My new note' will be given an ID that looks
+      -- like '1657296016-my-new-note', and therefore the file name '1657296016-my-new-note.md'
+      local suffix = ''
+      if title ~= nil then
+        -- If title is given, transform it into valid file name.
+        return title:gsub(' ', '-'):gsub('[^A-Za-z0-9-]', ''):lower()
+      else
+        -- If title is nil, just add 4 random uppercase letters to the suffix.
+        for _ = 1, 4 do
+          suffix = suffix .. string.char(math.random(65, 90))
+        end
+      end
+      return 'Note-' .. suffix
+    end,
     -- Optional, configure key mappings. These are the defaults. If you don't want to set any keymappings this
     -- way then set 'mappings = {}'.
     mappings = {
@@ -79,13 +98,17 @@ return {
         opts = { noremap = false, expr = true, buffer = true },
       },
       -- Toggle check-boxes.
-      ['<leader>ch'] = {
+      ['<leader>oc'] = {
         action = function()
           return require('obsidian').util.toggle_checkbox()
         end,
-        opts = { buffer = true },
+        opts = { buffer = true, desc = '[O]bsidian toggle [C]heckbox' },
       },
       ['<leader>os'] = { action = '<cmd>ObsidianQuickSwitch<cr>', opts = { buffer = true, desc = '[O]bsidian quick [S]witch' } },
+      ['<leader>og'] = { action = '<cmd>ObsidianSearch<cr>', opts = { buffer = true, desc = '[O]bsidian search [G]rep' } },
+      ['<leader>ot'] = { action = '<cmd>ObsidianTags<cr>', opts = { buffer = true, desc = '[O]bsidian [T]ags' } },
+      ['<leader>od'] = { action = '<cmd>ObsidianToday<cr>', opts = { buffer = true, desc = '[O]bsidian today [D]aily note' } },
+      ['<leader>on'] = { action = '<cmd>ObsidianNew<cr>', opts = { buffer = true, desc = '[O]bsidian [N]ew note' } },
     },
 
     -- see below for full list of options 👇
