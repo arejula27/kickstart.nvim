@@ -19,7 +19,7 @@ return {
   opts = {
     disable_frontmatter = true,
     ui = {
-      enable = false,
+      enable = true,
     },
     workspaces = {
       {
