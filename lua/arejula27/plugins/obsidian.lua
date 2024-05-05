@@ -22,7 +22,7 @@ return {
     }
     local obsidian = require 'obsidian'
     obsidian.setup {
-      disable_frontmatter = true,
+      disable_frontmatter = false,
       -- Optional, alternatively you can customize the frontmatter data.
       ---@return table
       note_frontmatter_func = function(note)
@@ -109,8 +109,8 @@ return {
           end,
           opts = { buffer = true, desc = '[O]bsidian toggle [C]heckbox' },
         },
-        ['<leader>os'] = { action = '<cmd>ObsidianQuickSwitch<cr>', opts = { buffer = true, desc = '[O]bsidian quick [S]witch' } },
-        ['<leader>og'] = { action = '<cmd>ObsidianSearch<cr>', opts = { buffer = true, desc = '[O]bsidian search [G]rep' } },
+        ['<leader>oq'] = { action = '<cmd>ObsidianQuickSwitch<cr>', opts = { buffer = true, desc = '[O]bsidian [Q]uick switch' } },
+        ['<leader>os'] = { action = '<cmd>ObsidianSearch<cr>', opts = { buffer = true, desc = '[O]bsidian [S]earch' } },
         ['<leader>ot'] = { action = '<cmd>ObsidianTags<cr>', opts = { buffer = true, desc = '[O]bsidian [T]ags' } },
         ['<leader>od'] = { action = '<cmd>ObsidianToday<cr>', opts = { buffer = true, desc = '[O]bsidian today [D]aily note' } },
         ['<leader>on'] = { action = '<cmd>ObsidianNew<cr>', opts = { buffer = true, desc = '[O]bsidian [N]ew note' } },
