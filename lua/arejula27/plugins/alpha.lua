@@ -21,7 +21,7 @@ return {
       dashboard.button('f', '󰮗  Find files', ':Telescope find_files <CR>'),
       dashboard.button('r', '  Recent files', ':Telescope oldfiles <CR>'),
       dashboard.button('p', '  Projects', ':Telescope project <CR>'),
-      dashboard.button('o', ' Obsidian', ':cd ~/Documents/obsidian/main/ | :ObsidianToday <CR>'),
+      dashboard.button('o', ' Obsidian', ':cd ~/Documents/obsidian/main/ <CR> | :lua require("obsidian") <CR> | :ObsidianToday <CR>'),
       dashboard.button('c', ' Configuration', ':cd ~/.config/nvim | :Telescope find_files <CR>'),
       dashboard.button('q', '󰩈  Quit NVIM', ':qa<CR>'),
     }
