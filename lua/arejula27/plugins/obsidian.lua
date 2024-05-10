@@ -57,6 +57,9 @@ return {
         date_format = '%Y-%m-%d',
         time_format = '%H:%M',
         substitutions = {
+          today = function()
+            return os.date('%Y-%m-%d', os.time())
+          end,
           yesterday = function()
             return os.date('%Y-%m-%d', os.time() - 86400)
           end,
