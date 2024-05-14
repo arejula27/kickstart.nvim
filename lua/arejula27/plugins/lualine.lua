@@ -27,7 +27,8 @@ local bubles = {
     lualine_z = { 'location' },
   },
   tabline = {
-    --lualine_c={'buffers'},
+    lualine_c = { { 'buffers', separator = { right = '', left = '' }, left_padding = 2 } },
+
     lualine_z = { { 'tabs', separator = { right = '', left = '' }, left_padding = 2 } },
   },
 }
