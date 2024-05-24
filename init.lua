@@ -143,7 +143,8 @@ vim.opt.splitbelow = true
 --  and `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-
+-- tabs are 2 spaces
+vim.opt.tabstop = 4
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 
@@ -616,6 +617,8 @@ require('lazy').setup({
       }
 
       vim.filetype.add { extension = { templ = 'templ' } }
+      -- Add suport for tsx filesize
+      vim.filetype.add { extension = { tsx = 'typescriptreact' } }
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
       --  other tools, you can run
