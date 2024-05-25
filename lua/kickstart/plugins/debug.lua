@@ -27,6 +27,7 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local dapgo = require 'dap-go'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -85,6 +86,7 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     -- Install golang specific config
-    require('dap-go').setup()
+    dapgo.setup()
+    vim.keymap.set('n', '<leader>dt', dapgo.debug_test, { desc = '[D]ebug [T]est' })
   end,
 }
